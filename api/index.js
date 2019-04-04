@@ -7,7 +7,7 @@ const Model = {
 
 
 const spawn = require("child_process").spawn;
-const pythonProcess = spawn('sudo python', ["test.py"], {
+const pythonProcess = spawn('sudo', ["python", "test.py"], {
     detached: true,
     stdio: [null, null, null, 'ipc']
 });
