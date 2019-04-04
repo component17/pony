@@ -80,28 +80,3 @@ router.get('/test', (req, res) => {
 
 
 module.exports = router;
-
-// let response = [
-//     {
-//         port: 0,
-//         start: 0,
-//         end: 5,
-//         color: {
-//             r: 0,
-//             g: 0,
-//             b: 255
-//         }
-//     },
-//     {
-//         port: 0,
-//         start: 10,
-//         end: 25,
-//         color: {
-//             r: 0,
-//             g: 0,
-//             b: 255
-//         }
-//     },
-// ];
-//
-// console.log(JSON.stringify(response));
