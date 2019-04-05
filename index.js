@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser')
+
 
 // const cp = require('child_process');
 //
@@ -7,11 +10,17 @@ const app = express();
 
 const api = require('./api/index');
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
+app.use(express.static('spa'));
+
+app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use('/api', api);
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/spa/index.html'));
+});
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');

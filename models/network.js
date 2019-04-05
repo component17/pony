@@ -2,10 +2,10 @@ const os = require('os');
 
 
 module.exports = {
-    getlInfo(){
+    getlInfo() {
         let ifaces = os.networkInterfaces();
 
-        let res = {};
+        let res = [];
 
         Object.keys(ifaces).forEach((ifname) => {
             let alias = 0;
@@ -21,8 +21,10 @@ module.exports = {
                     //console.log(ifname + ':' + alias, iface.address);
                 } else {
                     // this interface has only one ipv4 adress
-                    res[ifname] = iface.address;
-                    //console.log(ifname, iface.address);
+                    res.push({
+                        name: ifname,
+                        ip: iface.address
+                    });
                 }
                 ++alias;
             });

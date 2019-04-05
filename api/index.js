@@ -78,5 +78,14 @@ router.get('/test', (req, res) => {
     res.status(200).json({message: 'OK!'})
 });
 
+router.post('/move', (req, res) => {
+
+    console.log(req.body);
+
+    pythonProcess.stdin.write(`${req.body}\n`);
+
+    res.status(200).json({message: 'OK!'})
+});
+
 
 module.exports = router;
