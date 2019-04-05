@@ -82,7 +82,7 @@ router.post('/move', (req, res) => {
 
     console.log(req.body);
 
-    pythonProcess.stdin.write(`${req.body}\n`);
+    pythonProcess.stdin.write(`${JSON.stringify(req.body)}\n`);
 
     res.status(200).json({message: 'OK!'})
 });
