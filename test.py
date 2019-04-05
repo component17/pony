@@ -50,9 +50,10 @@ while(True):
         port0.setPixelColorRGB(led, 0,0,0)
         port1.setPixelColorRGB(led, 0,0,0)
         port2.setPixelColorRGB(led, 0,0,0)
-        port1.show()
-        port2.show()
-        port0.show()
+
+    port1.show()
+    port2.show()
+    port0.show()
 
     for data in array:
         if data["port"]==0:
