@@ -1,7 +1,7 @@
 const spawn = require("child_process").spawn;
 const pythonProcess = spawn('sudo', ["python", "test.py"]);
 
-pythonProcess.unref();
+//pythonProcess.unref();
 
 process.on('exit', () => {
     pythonProcess.kill()
