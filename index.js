@@ -1,7 +1,22 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+
+const adapter = new FileSync('db.json');
+global.db = low(adapter);
+
+db.defaults({
+    cells: []
+}).write();
+
+process.on('SIGINT', () => {
+    console.log('\nServer stopped!!!');
+    process.exit();
+});
 
 
 // const cp = require('child_process');
