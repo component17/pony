@@ -16,6 +16,7 @@ pythonProcess.on('message', function (message) {
 });
 
 pythonProcess.stdout.on('data', (data) => {
+    console.log(555)
     console.log(data.toString());
 });
 
