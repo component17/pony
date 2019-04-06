@@ -1,7 +1,7 @@
 const spawn = require("child_process").spawn;
 const pythonProcess = spawn('sudo', ["python", "test.py"], {
-    detached: true,
-    stdio: 'ignore'
+    detached: false,
+    stdio: 'pipe'
 });
 
 //pythonProcess.unref();
