@@ -1,5 +1,7 @@
 const express = require('express');
-const app = express();
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -25,6 +27,10 @@ process.on('SIGTERM', cleanExit);
 global.Driver = require('./models/driver');
 global.Cells = require('./models/cell');
 
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});
+
 // const cp = require('child_process');
 //
 // const n = cp.fork(`ttt.js`);
@@ -43,7 +49,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/spa/index.html'));
 });
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+http.listen(3000, () => {
+    console.log('listening on *:3000');
 });
 
