@@ -31,8 +31,6 @@ router.post('/cells-on-port/:port_id', (req, res) => {
     res.status(200).json(cells)
 });
 
-
-
 router.post('/move', (req, res) => {
 
     console.log(req.body);

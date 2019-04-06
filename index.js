@@ -1,7 +1,7 @@
 const express = require('express');
 const app = require('express')();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+global.io = require('socket.io')(http);
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -29,6 +29,8 @@ global.Cells = require('./models/cell');
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+    io.sockets.emit('message', "this is a test");
 });
 
 // const cp = require('child_process');
