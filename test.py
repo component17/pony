@@ -69,8 +69,6 @@ while(True):
 
     array = list(input())
 
-    print('dsfgsdgsdgsdfgd')
-
     for led in range(0, 59):                ###Switching leds off at new requests
         port0.setPixelColorRGB(led, 0,0,0)
         port1.setPixelColorRGB(led, 0,0,0)
