@@ -19,27 +19,19 @@ router.get('/network', (req, res) => {
     res.status(200).json(Model.network.getlInfo())
 });
 
-router.get('/test', (req, res) => {
+router.get('/cells-on-port/:port_id', (req, res) => {
+    let cells = Cells.getCellsOnPort(req.params.port_id);
 
-    for(let i = 0; i < 60; i++){
-        let response = [
-            {
-                port: 0,
-                start: 0,
-                end: i,
-                color: {
-                    r: i * 2,
-                    g: 0,
-                    b: 255
-                }
-            },
-        ];
-
-
-    }
-
-    res.status(200).json({message: 'OK!'})
+    res.status(200).json(cells);
 });
+
+router.post('/cells-on-port/:port_id', (req, res) => {
+    let cells = Cells.syncCellsOnPort(req.params.port_id, req.body);
+
+    res.status(200).json(cells)
+});
+
+
 
 router.post('/move', (req, res) => {
 

@@ -3,6 +3,8 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+process.title = "PONY EXPRESS";
+
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
@@ -21,6 +23,7 @@ process.on('SIGINT', cleanExit);
 process.on('SIGTERM', cleanExit);
 
 global.Driver = require('./models/driver');
+global.Cells = require('./models/cell');
 
 // const cp = require('child_process');
 //
