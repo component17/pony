@@ -7,6 +7,11 @@ process.on('exit', () => {
     pythonProcess.kill()
 });
 
+pythonProcess.stdin.on('data', (data) => {
+    console.log(999)
+    console.log(data)
+})
+
 pythonProcess.on('message', function (message) {
     console.log('Received message...');
     console.log(message);
