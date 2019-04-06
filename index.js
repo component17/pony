@@ -30,9 +30,7 @@ global.Cells = require('./models/cell');
 io.on('connection', (socket) => {
     console.log('a user connected');
 
-    setInterval(() => {
-        io.sockets.emit("this is a test");
-    }, 500)
+    socket.emit('sfgsdgdfgsdgsdfgdsf')
 
 });
 
