@@ -29,9 +29,6 @@ global.Cells = require('./models/cell');
 
 io.on('connection', (socket) => {
     console.log('a user connected');
-
-    socket.emit('turn:led', 'turn:led')
-
 });
 
 // const cp = require('child_process');
