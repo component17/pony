@@ -35,7 +35,9 @@ router.post('/move', (req, res) => {
 
     console.log(req.body);
 
-    Driver.sendCommand(req.body);
+    // Driver.sendCommand(req.body);
+
+    io.sockets.emit('turn:led', JSON.stringify(req.body));
 
     res.status(200).json({message: 'OK!'})
 });
