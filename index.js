@@ -30,7 +30,10 @@ global.Cells = require('./models/cell');
 io.on('connection', (socket) => {
     console.log('a user connected');
 
-    io.sockets.emit('message', "this is a test");
+    setInterval(() => {
+        io.sockets.emit('message', "this is a test");
+    }, 500)
+
 });
 
 // const cp = require('child_process');
