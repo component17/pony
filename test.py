@@ -5,7 +5,7 @@ import threading
 from threading import*
 import json
 import RPi.GPIO as GPIO
-
+import time
 
 class sensors:
     def __init__(self, port, sensor0Channel,sensor1Channel,sensor2Channel,sensor3Channel,sensor4Channel, stripPin):
@@ -66,7 +66,8 @@ GPIO.add_event_detect(15, GPIO.FALLING, callback=sensEvent, bouncetime=1)
 
 
 while(True):
-
+    print ("test")
+    time.sleep(1)
     array = list(input())
 
     for led in range(0, 59):                ###Switching leds off at new requests
