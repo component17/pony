@@ -62,10 +62,10 @@ GPIO.add_event_detect(14, GPIO.FALLING, callback=sensEvent, bouncetime=1)  ###Se
 GPIO.add_event_detect(15, GPIO.FALLING, callback=sensEvent, bouncetime=1)
 
 while (True):
-
-    array = list(input())
     sleep(1)
     sys.stdout.write("test" + '\n')
+    
+    array = list(input())
     for led in range(0, 59):  ###Switching leds off at new requests
         port0.setPixelColorRGB(led, 0, 0, 0)
         port1.setPixelColorRGB(led, 0, 0, 0)
