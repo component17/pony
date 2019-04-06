@@ -34,6 +34,7 @@ pythonProcess.stderr.on('data', (data) => {
 
 module.exports = {
     sendCommand(response){
-        pythonProcess.stdin.write(`${JSON.stringify(response)}\n`);
+        pythonProcess.stdin.write(`${JSON.stringify(response)}`);
+        pythonProcess.stdin.write(`\n`);
     }
 };
