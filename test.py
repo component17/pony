@@ -84,7 +84,7 @@ while(True):
             first_led = data["start"]
             last_led = data["end"]
             for led in range(first_led, last_led):
-                print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
+                print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"], "\n")
                 port0.setPixelColorRGB(led, data["color"]["r"], data["color"]["g"], data["color"]["b"])
             port0.show()
         elif data["port"]==1:
