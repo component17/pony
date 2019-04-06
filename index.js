@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 
     setInterval(() => {
-        io.sockets.emit('message', "this is a test");
+        io.sockets.emit("this is a test");
     }, 500)
 
 });
