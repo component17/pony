@@ -22,6 +22,8 @@ class sensors:
             print (sensChan, self.port)
 
 
+    def getSensorPort(self):
+        pass
 
 port0Sensors = sensors(0,14,None,None,None,None,19)
 port1Sensors = sensors(1,15,None,None,None,None,21)
@@ -78,27 +80,27 @@ while(True):
 
     for data in array:                      ###Parsing requests for different ports
         if data["port"]==0:
-            #print (data)
+            print (data)
             first_led = data["start"]
             last_led = data["end"]
             for led in range(first_led, last_led):
-                #print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
+                print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
                 port0.setPixelColorRGB(led, data["color"]["r"], data["color"]["g"], data["color"]["b"])
             port0.show()
         elif data["port"]==1:
-            #print (data)
+            print (data)
             first_led = data["start"]
             last_led = data["end"]
             for led in range(first_led, last_led):
-              #  print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
+                print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
                 port1.setPixelColorRGB(led, data["color"]["r"], data["color"]["g"], data["color"]["b"])
             port1.show()
         elif data["port"]==2:
-            #print (data)
+            print (data)
             first_led = data["start"]
             last_led = data["end"]
             for led in range(first_led, last_led):
-               # print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
+                print ("here1",data["color"]["r"], data["color"]["g"], data["color"]["b"])
                 port2.setPixelColorRGB(led, data["color"]["r"], data["color"]["g"], data["color"]["b"])
 
 
