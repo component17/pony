@@ -13,11 +13,14 @@ db.defaults({
     cells: []
 }).write();
 
-process.on('SIGINT', () => {
+const cleanExit = () => {
     console.log('\nServer stopped!!!');
-    process.exit();
-});
+    process.exit()
+};
+process.on('SIGINT', cleanExit);
+process.on('SIGTERM', cleanExit);
 
+global.Driver = require('./models/driver');
 
 // const cp = require('child_process');
 //

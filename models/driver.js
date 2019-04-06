@@ -6,6 +6,10 @@ const pythonProcess = spawn('sudo', ["python", "test.py"], {
 
 pythonProcess.unref();
 
+process.on('exit', () => {
+    pythonProcess.kill()
+});
+
 pythonProcess.on('message', function (message) {
     console.log('Received message...');
     console.log(message);
