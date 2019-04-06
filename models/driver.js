@@ -1,16 +1,14 @@
 const spawn = require("child_process").spawn;
-const pythonProcess = spawn('sudo', ["python", "test.py"]);
+const pythonProcess = spawn('sudo', ["python", "test.py"], {
+    detached: true,
+    stdio: 'ignore'
+});
 
 //pythonProcess.unref();
 
 process.on('exit', () => {
     pythonProcess.kill()
 });
-
-pythonProcess.stdin.on('data', (data) => {
-    console.log(999)
-    console.log(data)
-})
 
 pythonProcess.on('message', function (message) {
     console.log('Received message...');
