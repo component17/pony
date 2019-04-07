@@ -34,11 +34,6 @@ io.on('connection', (socket) => {
         console.log('Sensors', data)
     });
 
-
-});
-
-io.sockets.on("sensor:event", (data) => {
-    console.log('Sensors', data)
 });
 
 // const cp = require('child_process');
