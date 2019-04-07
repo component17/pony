@@ -1,5 +1,5 @@
 const spawn = require("child_process").spawn;
-const pythonProcess = spawn('sudo', ["python", "test.py"], {
+const pythonProcess = spawn('sudo', ["python", "test.py", "--leds 60", "--port 3000"], {
     detached: false,
     stdio: 'pipe'
 });
@@ -8,11 +8,6 @@ const pythonProcess = spawn('sudo', ["python", "test.py"], {
 
 process.on('exit', () => {
     pythonProcess.kill()
-});
-
-pythonProcess.on('message', function (message) {
-    console.log('Received message...');
-    console.log(message);
 });
 
 pythonProcess.stdout.on('data', (data) => {
