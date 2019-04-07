@@ -29,6 +29,12 @@ global.Cells = require('./models/cell');
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+    socket.on("sensor:event", (data) => {
+        console.log('Sensors', data)
+    });
+
+
 });
 
 io.sockets.on("sensor:event", (data) => {
