@@ -24,7 +24,7 @@ const cleanExit = () => {
 process.on('SIGINT', cleanExit);
 process.on('SIGTERM', cleanExit);
 
-global.Driver = require('./models/driver');
+//global.Driver = require('./models/driver');
 global.Cells = require('./models/cell');
 
 io.on('connection', (socket) => {
