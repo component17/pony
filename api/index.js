@@ -19,6 +19,12 @@ router.get('/network', (req, res) => {
     res.status(200).json(Model.network.getlInfo())
 });
 
+router.get('/cells', (req, res) => {
+    let cells = Cells.getCellsAll();
+
+    res.status(200).json(cells);
+});
+
 router.get('/cells-on-port/:port_id', (req, res) => {
     let cells = Cells.getCellsOnPort(req.params.port_id);
 

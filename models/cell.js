@@ -10,5 +10,8 @@ module.exports = {
     },
     getCellsOnPort(port){
         return db.get('cells').filter({port: +port}).value()
+    },
+    getCellsAll(){
+        return db.get('cells').value()
     }
 };
