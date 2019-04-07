@@ -31,6 +31,10 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 });
 
+io.sockets.on("sensor:event", (data) => {
+    console.log('Sensors', data)
+});
+
 // const cp = require('child_process');
 //
 // const n = cp.fork(`ttt.js`);
