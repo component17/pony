@@ -1,5 +1,5 @@
 const spawn = require("child_process").spawn;
-const pythonProcess = spawn('sudo', ["python", "test.py", "--leds", "60", "--port", "3000"], {
+const pythonProcess = spawn('sudo', ["python", "test.py", "--leds", "60", "--port", "80"], {
     detached: false,
     stdio: 'pipe'
 });
