@@ -2,7 +2,9 @@ module.exports = {
     apps : [
         {
             name: "controller server",
-            script: "./serverjs/pony/index.js",
+            cwd: "./serverjs/pony",
+            script: "npm",
+            args: "start",
             watch: true,
             ignore_watch: [
                 './.git',

@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/spa/index.html'));
 });
 
-http.listen(80, () => {
+http.listen(8080, () => {
     console.log('listening on http://localhost');
 });
 
