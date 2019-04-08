@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
 
 const api = require('./api/index');
 
-app.use(express.static('spa'));
+app.use(express.static(__dirname + '/spa'));
 
 app.use(bodyParser.json());
 
