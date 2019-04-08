@@ -12,15 +12,15 @@ import argparse
 
 def createParser ():
     parser = argparse.ArgumentParser()
-    parser.add_argument ("--leds", default=1, type=int, required=True)
-    parser.add_argument ("--port", default=1, type=int, required=True)
+    parser.add_argument ("--leds", default=1, required=True)
+    parser.add_argument ("--port", default=1, required=True)
     return parser
 
 
 parser = createParser()
 namespace = parser.parse_args(sys.argv[1:])
-ledsNumber = namespace.leds
-socketPort = namespace.port
+ledsNumber = int(namespace.leds)
+socketPort = int(namespace.port)
 print (ledsNumber, socketPort)
 class sensors:
     def __init__(self, port, sensor0Channel,sensor1Channel,sensor2Channel,sensor3Channel,sensor4Channel, stripPin):
