@@ -21,31 +21,35 @@ router.get('/network', (req, res) => {
 
 router.get('/cells', (req, res) => {
     let cells = Cells.getCellsAll();
-
     res.status(200).json(cells);
 });
 
 router.get('/cells-on-port/:port_id', (req, res) => {
     let cells = Cells.getCellsOnPort(req.params.port_id);
-
     res.status(200).json(cells);
 });
 
 router.post('/cells-on-port/:port_id', (req, res) => {
     let cells = Cells.syncCellsOnPort(req.params.port_id, req.body);
-
     res.status(200).json(cells)
 });
 
 router.post('/move', (req, res) => {
-
-    console.log(req.body);
-
-    // Driver.sendCommand(req.body);
-
     io.sockets.emit('turn:led', JSON.stringify(req.body));
-
     res.status(200).json({message: 'OK!'})
+});
+
+router.post('/turn-led', (req, res) => {
+    io.sockets.emit('turn:led', JSON.stringify(req.body));
+    res.status(200).json({message: 'OK!'})
+});
+
+router.get('/turn-cell/:id', (req, res) => {
+    let cells = Cells.getCellByName(req.params.id);
+    if(cells.length){
+        io.sockets.emit('turn:led', JSON.stringify(cells));
+    }
+    res.status(200).json({message: 'OK'})
 });
 
 

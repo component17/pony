@@ -33,12 +33,7 @@ io.on('connection', (socket) => {
     socket.on("sensor:event", (data) => {
         console.log('Sensors', data)
     });
-
 });
-
-// const cp = require('child_process');
-//
-// const n = cp.fork(`ttt.js`);
 
 const api = require('./api/index');
 
@@ -54,7 +49,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/spa/index.html'));
 });
 
-http.listen(3000, () => {
-    console.log('listening on *:3000');
+http.listen(80, () => {
+    console.log('listening on http://localhost');
 });
 

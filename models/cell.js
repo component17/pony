@@ -13,5 +13,8 @@ module.exports = {
     },
     getCellsAll(){
         return db.get('cells').value()
+    },
+    getCellByName(name){
+        return db.get('cells').filter({name}).value()
     }
 };
