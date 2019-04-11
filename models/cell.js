@@ -15,6 +15,6 @@ module.exports = {
         return db.get('cells').value()
     },
     getCellByName(name){
-        return db.get('cells').filter({name}).value()
+        return db.get('cells').find({name}).value()
     }
 };

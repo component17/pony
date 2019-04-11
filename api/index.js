@@ -47,9 +47,11 @@ router.post('/turn-led', (req, res) => {
 router.get('/turn-cell/:id', (req, res) => {
     let cells = Cells.getCellByName(req.params.id);
 
-    if(cells.length){
-        io.sockets.emit('turn:led', JSON.stringify(cells));
-    }
+    console.log({cells});
+
+    // if(cells.length){
+    //     io.sockets.emit('turn:led', JSON.stringify(cells));
+    // }
     res.status(200).json({message: 'OK'})
 });
 
