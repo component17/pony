@@ -49,10 +49,10 @@ router.get('/turn-cell/:id', (req, res) => {
 
     console.log({cells});
 
-    // if(cells.length){
-    //     io.sockets.emit('turn:led', JSON.stringify(cells));
-    // }
-    res.status(200).json({message: 'OK'})
+    if(cells){
+        io.sockets.emit('turn:led', JSON.stringify([cells]));
+    }
+    res.status(200).json({message: 'OK', data: JSON.stringify([cells])})
 });
 
 
