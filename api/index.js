@@ -35,6 +35,9 @@ router.post('/cells-on-port/:port_id', (req, res) => {
 });
 
 router.post('/move', (req, res) => {
+    console.log("==============RESPONSE==================");
+    console.log(req.body);
+    console.log("==============RESPONSE END==================");
     io.sockets.emit('turn:led', JSON.stringify(req.body));
     res.status(200).json({message: 'OK!'})
 });
