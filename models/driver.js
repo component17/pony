@@ -29,6 +29,7 @@ pythonProcess.stderr.on('data', (data) => {
 
 module.exports = {
     sendCommand(response){
+        console.log({response});
         pythonProcess.stdin.write(`${JSON.stringify(response)}`);
         pythonProcess.stdin.write(`\n`);
     }

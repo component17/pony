@@ -9,6 +9,8 @@ const path = require('path');
 
 process.title = "PONY EXPRESS";
 
+global.LastCell = null;
+
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
