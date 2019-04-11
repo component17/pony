@@ -16,5 +16,8 @@ module.exports = {
     },
     getCellByName(name){
         return db.get('cells').find({name}).value()
+    },
+    getCellBySensor(sensor){
+        return db.get('cells').find({sensor}).value()
     }
 };

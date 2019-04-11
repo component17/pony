@@ -49,6 +49,8 @@ router.get('/turn-cell/:id', (req, res) => {
 
     console.log({cells});
 
+    LastCell = cells;
+
     if(cells){
         io.sockets.emit('turn:led', JSON.stringify([cells]));
     }
