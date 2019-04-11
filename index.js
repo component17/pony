@@ -38,8 +38,7 @@ io.on('connection', (socket) => {
 
     socket.on("sensor:event", (data) => {
         console.log('Sensors', data);
-        if(LastCell && lastSensor !== data.sensor){
-            lastSensor = data.sensor;
+        if(LastCell){
             if(LastCell.sensor === data.sensor){
                 io.sockets.emit('turn:led', JSON.stringify([]));
                 LastCell = null;
@@ -56,10 +55,12 @@ io.on('connection', (socket) => {
 
                 console.log(222, [last, sensorCell]);
 
-                if(sensorCell){
+                if(sensorCell && lastSensor !== data.sensor){
                     io.sockets.emit('turn:led', JSON.stringify([last, sensorCell]));
                 }
             }
+
+            lastSensor = data.sensor;
         }
     });
 });
