@@ -31,12 +31,15 @@ process.on('SIGTERM', cleanExit);
 global.Driver = require('./models/driver');
 global.Cells = require('./models/cell');
 
+let lastSensor = null;
+
 io.on('connection', (socket) => {
     console.log('a user connected');
 
     socket.on("sensor:event", (data) => {
-        console.log('Sensors', data)
-        if(LastCell){
+        console.log('Sensors', data);
+        if(LastCell && lastSensor !== data.sensor){
+            lastSensor = data.sensor;
             if(LastCell.sensor === data.sensor){
                 io.sockets.emit('turn:led', JSON.stringify([]));
                 LastCell = null;
