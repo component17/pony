@@ -54,7 +54,7 @@ io.on('connection', (socket) => {
                 console.log(222, [last, sensorCell]);
 
                 if(sensorCell){
-                    io.sockets.emit('turn:led', JSON.stringify([LastCell, sensorCell]));
+                    io.sockets.emit('turn:led', JSON.stringify([last, sensorCell]));
                 }
             }
         }
