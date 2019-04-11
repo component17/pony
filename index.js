@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
                 LastCell = null;
                 console.log(111, "LED OFF")
             }else{
-                let last = LastCell;
+                let last = {...LastCell};
                 last.color = {
                   r: 0,
                   g: 255,
