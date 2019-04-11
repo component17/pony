@@ -39,9 +39,11 @@ io.on('connection', (socket) => {
         if(LastCell){
             if(LastCell.sensor === data.sensor){
                 io.sockets.emit('turn:led', JSON.stringify([]));
+                LastCell = null;
                 console.log(111, "LED OFF")
             }else{
-                LastCell.color = {
+                let last = LastCell;
+                last.color = {
                   r: 0,
                   g: 255,
                   b: 0
@@ -49,7 +51,7 @@ io.on('connection', (socket) => {
 
                 let sensorCell = Cells.getCellBySensor(data.sensor);
 
-                console.log(222, [LastCell, sensorCell])
+                console.log(222, [last, sensorCell]);
 
                 if(sensorCell){
                     io.sockets.emit('turn:led', JSON.stringify([LastCell, sensorCell]));
